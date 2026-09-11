@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0c0f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="DMX Address" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <title>DMX Address</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>DMX</h1>
+      <div class="top-actions">
+        <button id="resetBtn" class="icon-btn" aria-label="Reset adresse">↺</button>
+        <button id="settingsBtn" class="icon-btn" aria-label="Indstillinger">⚙</button>
+      </div>
+    </header>
+
+    <section class="address-card">
+      <div id="addressDisplay" class="address">001</div>
+      <div id="rangeWarning" class="warning hidden"></div>
+    </section>
+
+    <section class="panel dip-panel">
+      <div class="dip-wrap" id="dipContainer"></div>
+      <div class="binary-row">
+        <span id="binaryDisplay">000000001</span>
+      </div>
+    </section>
+
+    <section class="panel keypad-panel">
+      <div id="keypad" class="keypad">
+        <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+        <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+        <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+        <button data-key="clear" class="secondary">CLR</button><button data-key="0">0</button><button data-key="back" class="secondary">⌫</button>
+      </div>
+    </section>
+
+    <section class="nav-buttons">
+      <button id="previousBtn" class="nav-btn">
+        <span class="nav-symbol">−</span>
+        <span>Forrige</span>
+      </button>
+      <button id="nextBtn" class="nav-btn primary">
+        <span class="nav-symbol">+</span>
+        <span>Næste</span>
+      </button>
+    </section>
+
+    <div class="channel-status">
+      <span id="channelStatus">15 kanaler</span>
+    </div>
+  </main>
+
+  <div id="settingsOverlay" class="overlay hidden" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-head">
+        <h2>Indstillinger</h2>
+        <button id="closeSettingsBtn" class="icon-btn" aria-label="Luk">✕</button>
+      </div>
+
+      <div class="setting-row">
+        <span>Kanaler pr. lampe</span>
+        <div class="stepper">
+          <button id="channelsMinus">−</button>
+          <input id="channelsInput" type="number" min="1" max="512" inputmode="numeric" value="15" />
+          <button id="channelsPlus">+</button>
+        </div>
+      </div>
+
+      <div class="presets">
+        <button data-ch="4">4</button>
+        <button data-ch="8">8</button>
+        <button data-ch="12">12</button>
+        <button data-ch="15">15</button>
+        <button data-ch="16">16</button>
+        <button data-ch="24">24</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
